@@ -7,9 +7,19 @@ public class Ball : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
+
+    private Vector3 startPosition;
+
     // Start is called before the first frame update
+    public void Reset()
+    {
+        rb.velocity = Vector2.zero;
+        transform.position = startPosition;
+        Launch();
+    }
     void Start()
     {
+        startPosition = transform.position;
         Launch();
     }
 
